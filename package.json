@@ -4,7 +4,7 @@
   "description": "API Restful para consumo e tratamento de propostas do FIES.",
   "main": "src/index.js",
   "scripts": {
-    "start": "pm2 start src/index.js --name fies_service -i 1",
+    "start": "pm2 start src/index.js --name fies_service --watch",
     "test": "jest --watch src/**/*.js",
     "mock": "babel-node src/mock/mockToFile.js",
     "insert": "babel-node src/mock/insertTest.js"
@@ -13,6 +13,8 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "cors": "^2.8.4",
     "eslint": "^4.11.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -21,8 +23,7 @@
     "eslint-plugin-react": "^7.5.1",
     "method-override": "^2.3.10",
     "morgan": "^1.9.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
+    "nodemon": "^1.12.1"
   },
   "dependencies": {
     "body-parser": "^1.18.2",

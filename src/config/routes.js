@@ -1,6 +1,5 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
-const fs = require('fs');
 // const contratoService = require('../api/contrato/contratoService');
 
 const url = 'mongodb://localhost:27017/fies';
@@ -28,6 +27,9 @@ module.exports = function (server) {
   router.post('/contratos', (req, res) => {
     insertJson(req.body);
     res.send('Feito.');
+  });
+  router.get('/contratos', (req, res) => {
+    res.send('hueztop');
   });
   server.use('/api', router);
 
