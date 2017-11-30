@@ -26,7 +26,7 @@ module.exports = function (server) {
   const router = express.Router();
   router.post('/contratos', (req, res) => {
     insertJson(req.body);
-    res.send('Feito.');
+    res.send('{ "code": 200, "msg": "Feito." }');
   });
   router.get('/contratos', (req, res) => {
     res.send('hueztop');

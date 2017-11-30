@@ -7,7 +7,8 @@
     "start": "pm2 start src/index.js --name fies_service --watch",
     "test": "jest --watch src/**/*.js",
     "mock": "babel-node src/mock/mockToFile.js",
-    "insert": "babel-node src/mock/insertTest.js"
+    "insert": "babel-node src/mock/insertTest.js",
+    "post-insert": "babel-node src/mock/postContratos.js"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +34,7 @@
     "moment": "^2.19.2",
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.4",
+    "node-fetch": "^1.7.3",
     "node-restful": "^0.2.6",
     "pm2": "^2.8.0",
     "ramda": "^0.25.0",
