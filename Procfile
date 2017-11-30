@@ -1,1 +1,1 @@
-web: node node_modules/nodemon/bin/nodemon.js
+web: npm i -g nodemon && nodemon
