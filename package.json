@@ -2,10 +2,11 @@
   "name": "fies_service",
   "version": "1.0.0",
   "description": "API Restful para consumo e tratamento de propostas do FIES.",
-  "main": "src/index.js",
+  "main": "new_src/index.js",
   "scripts": {
-    "start": "pm2 start src/index.js --name fies_service --watch",
-    "test": "jest --watch src/**/*.js",
+    "start2": "pm2 start src/index.js --name fies_service --watch",
+    "start": "nodemon --exec babel-node new_src/index.js",
+    "test": "jest --watch new_src/**/*.js",
     "mock": "babel-node src/mock/mockToFile.js",
     "insert": "babel-node src/mock/insertTest.js",
     "post-insert": "babel-node src/mock/postContratos.js"
@@ -32,6 +33,7 @@
     "faker": "^4.1.0",
     "jest": "^21.2.1",
     "moment": "^2.19.2",
+    "mongo-mock": "^2.8.0",
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.4",
     "node-fetch": "^1.7.3",
@@ -40,11 +42,12 @@
     "ramda": "^0.25.0",
     "sinon": "^4.1.2",
     "sinon-mongoose": "^2.0.2",
-    "stream-json": "^0.5.2"
+    "stream-json": "^0.5.2",
+    "supertest": "^3.0.0"
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*js",
+      "new_src/**/*js",
       "!src/index.js"
     ]
   }
