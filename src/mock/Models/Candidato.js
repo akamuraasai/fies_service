@@ -9,7 +9,7 @@ const Candidato = () => ({
   CodigoInscricao: faker.random.number(99999999999999999999),
   CPFCandidato: cpf(),
   NomeCandidato: faker.name.findName(),
-  DataDeNascimento: moment(faker.date.past()).format('DMMYYYY'),
+  DataDeNascimento: `${moment(faker.date.past()).format('DMMYYYY')}`,
   SexoCandidato: faker.random.number(1) === 0 ? 'F' : 'M',
   NaturalDe: faker.address.city(),
   UfNaturalidade: faker.address.stateAbbr(),
