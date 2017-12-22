@@ -1,8 +1,9 @@
 import faker from 'faker';
 import moment from 'moment';
+import {cpf} from "../Helpers/CPFGenerator";
 
 const Fiador = () => ({
-  CPFFiador: `${faker.random.number(99999999999)}`,
+  CPFFiador: cpf(true),
   NomeFiador: faker.name.findName(),
   NaturalDe: faker.address.city(),
   PaísDeNascimento: faker.address.country(),
@@ -13,7 +14,7 @@ const Fiador = () => ({
   VlRendaBrutaFiador: faker.random.number(999999),
   EstadoCivilFiador: faker.hacker.adjective(),
   NomeCônjuge: faker.name.findName(),
-  CPFCônjuge: `${faker.random.number(99999999999)}`,
+  CPFCônjuge: cpf(true),
   GrauParentescoFiador: faker.hacker.adjective(),
   DataNascimetnoFiador: moment(faker.date.past()).format('DMMYYYY'),
   OcupacaoFiador: faker.hacker.adjective(),
