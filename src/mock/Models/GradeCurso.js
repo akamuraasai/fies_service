@@ -1,7 +1,7 @@
 import faker from 'faker';
 
 const GradeCurso = () => ({
-  NuSemestre: faker.random.number(12) + 1,
+  NuSemestre: `${faker.random.number(12) + 1}`,
   ValorPorSemestre: faker.random.number(99999),
 });
 
