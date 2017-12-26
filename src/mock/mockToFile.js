@@ -25,7 +25,7 @@ const makeLargeJson = (n, size) =>
 const main = () => (
   process.argv.filter(i => i === '100k').length > 0
     ? makeLargeJson(20, 5000)
-    : makeSimpleJson(1)
+    : makeSimpleJson(4500)
 );
 
 console.time('write_file');
