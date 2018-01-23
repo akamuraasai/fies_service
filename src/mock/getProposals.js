@@ -23,8 +23,10 @@ const insertJson = (json) => {
 
 const main = async () => {
   const res = await fetch('http://hmg-fiesservicos.mec.gov.br/servicos/pre-inscricao/pfies', {
+    method: 'GET',
     headers: {
-      Authorization: 'F}mR>9u8dan*0qRb3]I$<=UwI-Bq=6',
+      'Content-Type': 'application/json',
+      'Authorization': 'F}mR>9u8dan*0qRb3]I$<=UwI-Bq=6',
     },
   });
   const json = await res.json();
@@ -33,8 +35,10 @@ const main = async () => {
 
   codes.forEach((id) => {
     fetch(`http://hmg-fiesservicos.mec.gov.br/servicos/pre-inscricao/pfies?id=${id}`, {
+      method: 'GET',
       headers: {
-        Authorization: 'F}mR>9u8dan*0qRb3]I$<=UwI-Bq=6',
+        'Content-Type': 'application/json',
+        'Authorization': 'F}mR>9u8dan*0qRb3]I$<=UwI-Bq=6',
       },
     }).then(response => response.json())
       .then(proposals => insertJson(proposals.candidato));
