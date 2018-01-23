@@ -29,6 +29,7 @@ const main = async () => {
   });
   const json = await res.json();
   const codes = json.codigo;
+  console.log(codes);
 
   codes.forEach((id) => {
     fetch(`http://hmg-fiesservicos.mec.gov.br/servicos/pre-inscricao/pfies?id=${id}`, {
