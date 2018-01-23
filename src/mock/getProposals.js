@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import fetch from 'node-fetch';
+import axios from 'axios';
 
 const url = 'mongodb://localhost:27017/fies';
 
@@ -11,37 +11,33 @@ const insertDocuments = (db, data, callback) => {
     });
 };
 
-const insertJson = (json) => {
+const insertJson = (json, id) => {
   MongoClient.connect(url, (err, db) => {
-    console.time('insert_time');
+    console.log(id);
+    console.time(`insert_time_id_${id}`);
     insertDocuments(db, json, () => {
-      console.timeEnd('insert_time');
+      console.timeEnd(`insert_time_id_${id}`);
       db.close();
     });
   });
 };
 
 const main = async () => {
-  const res = await fetch('http://hmg-fiesservicos.mec.gov.br/servicos/pre-inscricao/pfies', {
-    method: 'GET',
+  const res = await axios.get('http://hmg-fiesservicos.mec.gov.br/servicos/pre-inscricao/pfies', {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': 'F}mR>9u8dan*0qRb3]I$<=UwI-Bq=6',
     },
   });
-  const json = await res.json();
-  const codes = json.codigo;
-  console.log(json);
+  const codes = res.data.codigo;
 
   codes.forEach((id) => {
-    fetch(`http://hmg-fiesservicos.mec.gov.br/servicos/pre-inscricao/pfies?id=${id}`, {
-      method: 'GET',
+    axios.get(`http://hmg-fiesservicos.mec.gov.br/servicos/pre-inscricao/pfies?id=${id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'F}mR>9u8dan*0qRb3]I$<=UwI-Bq=6',
       },
-    }).then(response => response.json())
-      .then(proposals => insertJson(proposals.candidato));
+    }).then(proposals => insertJson(proposals.data.candidato, id));
   });
 };
 
