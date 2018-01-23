@@ -9,6 +9,7 @@
     "test": "jest --watch new_src/**/*.js",
     "mock": "babel-node src/mock/mockToFile.js",
     "insert": "babel-node src/mock/insertTest.js",
+    "get-proposals": "babel-node src/mock/getProposals.js",
     "post-insert": "babel-node src/mock/postContratos.js"
   },
   "keywords": [],
